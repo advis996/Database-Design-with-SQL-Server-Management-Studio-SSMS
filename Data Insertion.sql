@@ -1,9 +1,41 @@
+CREATE DATABASE [myDB]
+
 USE [myDB]
-GO
+
+CREATE TABLE [Artists](
+[id]int Primary key,
+[name] nvarchar (max),
+[date_of_birth] date,
+[title] nchar (10)
+)
+
+CREATE TABLE [Work](
+[id] int Primary key,
+[name] nvarchar (max),
+[DESCRITION] nvarchar (max)
+[link] nvarchar (max)
+[Artist_id] int foreign key reference Artists (id)
+)
+
+CREATE TABLE [Reviewer](
+[id]int Primary key,
+[name] nvarchar (max),
+[date_of_birth] date,
+[title] nchar (10)
+)
+
+CREATE TABLE [Review](
+[id]int Primary key,
+[Comments] nvarchar (max),
+[Rating] date,
+[Reviewr_id] int foreign key reference reviewer (id)
+)
+
+
 /* Inserting Artists*/
-INSERT INTO [artists] VALUES (1,'John Jameson','1998-02-02','Guitarist ')
-INSERT INTO [artists] VALUES (2,'Elton Green','1990-03-03','Pianist')
-INSERT INTO [artists] VALUES (3,'Leonardo Richardson','1975-04-09','Painter')
+INSERT INTO [Artists] VALUES (1,'John Jameson','1998-02-02','Guitarist ')
+INSERT INTO [Artists] VALUES (2,'Elton Green','1990-03-03','Pianist')
+INSERT INTO [Artists] VALUES (3,'Leonardo Richardson','1975-04-09','Painter')
 
 /* Inserting Reviewers*/
 INSERT INTO [reviewer] VALUES (1,'Marcus Delfoe','1996-03-07','Critic')
